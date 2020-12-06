@@ -1,0 +1,25 @@
+* sqlite-quick-view
+
+  quickly view an sqlite database from emacs
+
+** example
+
+   following the example in https://www.sqlite.org/cli.html, generate the =ex1= database:
+
+   #+begin_src sql :eval never
+     create table tbl1(one varchar(10), two smallint);
+     insert into tbl1 values('hello!',10);
+     insert into tbl1 values('goodbye', 20);
+   #+end_src
+
+   #+begin_src sh :results output :eval never
+   sqlite3 /tmp/ex1 'select * from tbl1'
+   #+end_src
+
+   #+RESULTS:
+   : hello!|10
+   : goodbye|20
+
+   then, run =M-x sqlite-quick-view=, choose =ex1=, and you should see this
+
+   [[file:doc/img/2020-12-06_Selection_001.png]]
